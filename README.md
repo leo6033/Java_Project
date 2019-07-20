@@ -4,7 +4,7 @@ The code for my java Projects in my blog
 同时如果有可以改进的地方，欢迎大家一起来参与改进。
 
 目前已有项目：
-  + 画图板（Swing）
+  + My_Graphics 画图板（Swing）
   - 大球吃小球（多线程）
   + 聊天室（Socket通信）
   - 网盘（Socket通信）
