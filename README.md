@@ -9,5 +9,6 @@ The code for my java Projects in my blog
   + 聊天室（Socket通信）
   - 网盘（Socket通信）
   + 白板（Socket通信+Swing）
+  - 哈夫曼压缩（二叉树运用）
 
 之后可能还会更新更多项目，如果喜欢的话就点个star吧。
