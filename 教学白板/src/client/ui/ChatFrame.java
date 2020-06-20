@@ -358,6 +358,19 @@ public class ChatFrame extends JFrame{
 
             //如果设置了ToUser表示私聊，否则群聊
             Message msg = new Message();
+            if(rybqBtn.isSelected()){  //私聊
+                if(null == selectedUser){
+                    JOptionPane.showMessageDialog(ChatFrame.this, "没有选择私聊对象!",
+                            "不能发送", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }else if (DataBuffer.currentUser.getId() == selectedUser.getId()){
+                    JOptionPane.showMessageDialog(ChatFrame.this, "不能给自己发送消息!",
+                            "不能发送", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }else{
+                    msg.setToUser(selectedUser);
+                }
+            }
             msg.setFromUser(DataBuffer.currentUser);
             msg.setSendTime(new Date());
 
@@ -367,7 +380,9 @@ public class ChatFrame extends JFrame{
                     .append(msg.getFromUser().getNickname())
                     .append("(").append(msg.getFromUser().getId()).append(") ");
 
-            sb.append("对大家说");
+            if(!this.rybqBtn.isSelected()) {
+                sb.append("对大家说");
+            }
             sb.append("\n  ").append(content).append("\n");
             msg.setMessage(sb.toString());
 
