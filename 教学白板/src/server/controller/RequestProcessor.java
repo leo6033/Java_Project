@@ -160,6 +160,8 @@ public class RequestProcessor implements Runnable {
         DataBuffer.onlineUserTableModel.remove(user.getId()); //把当前下线用户从在线用户表Model中删除
         iteratorResponse(response);//通知所有其它在线客户端
 
+        ServerInfoFrame.appendTxt2MsgListArea("【系统消息】用户" + user.getNickname() + "下线了！\n");
+
         return false;  //断开监听
     }
     /** 注册 */
@@ -224,6 +226,7 @@ public class RequestProcessor implements Runnable {
                         new String[]{String.valueOf(user.getId()),
                                 user.getNickname(),
                                 String.valueOf(user.getSex())});
+                ServerInfoFrame.appendTxt2MsgListArea("【系统消息】用户" + user.getNickname() + "上线了！\n");
             }
         }else{ //登录失败
             response.setStatus(ResponseStatus.OK);
