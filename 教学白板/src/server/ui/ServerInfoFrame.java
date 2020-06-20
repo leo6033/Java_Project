@@ -322,6 +322,7 @@ public class ServerInfoFrame extends JFrame {
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
+                    sendArea.setText("");
                 }
             }
         });
@@ -459,6 +460,7 @@ public class ServerInfoFrame extends JFrame {
     // 按下发送服务器消息的按钮，给所有在线用户发送消息
     private void sendAllMsg() throws IOException {
         RequestProcessor.board(sendArea.getText());
+        sendArea.setText("");
     }
 
     /** 把所有已注册的用户信息加载到RegistedUserTableModel中 */
